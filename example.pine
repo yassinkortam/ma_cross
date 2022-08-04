@@ -1,0 +1,23 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © yassin.kortam
+
+//@version=5
+indicator("expiremental", overlay=true)
+
+//slow part
+b = input(title="ax b", defval=12)
+
+fx = ta.sma(close, b)
+dfx = (fx[0]-fx[b])/b
+dprice = (close[0] - close[b])/b
+hx = fx - dfx
+
+plot(hx,"0",color.yellow)
+//plot(fx,"0",color.yellow)
+
+if (hx[1] <= fx[1] and hx[0] >= fx[0]) 
+    label.new(bar_index,fx[0],"sell")
+if (hx[1] >= fx[1] and hx[0] <= fx[0]) 
+    label.new(bar_index,fx[0],"buy")
+
+

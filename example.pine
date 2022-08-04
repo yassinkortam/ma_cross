@@ -15,6 +15,7 @@ hx = fx - dfx
 plot(hx,"0",color.yellow)
 //plot(fx,"0",color.yellow)
 
+//show buy or sell marker
 if (hx[1] <= fx[1] and hx[0] >= fx[0]) 
     label.new(bar_index,fx[0],"sell")
 if (hx[1] >= fx[1] and hx[0] <= fx[0]) 
